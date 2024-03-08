@@ -55,6 +55,6 @@ Main function to run BMI calculation and interpretation.
 The script ensures only numerical values for height and weight are accepted, handling invalid input.
 
 
-![Uploading Screenshot 2024-03-08 225137.png…]()
 
+![Screenshot 2024-03-08 225137](https://github.com/OpAbhiG/BMI-Calculator/assets/110295591/2b252687-1c4f-4a06-b162-9db891a76a88)
 
