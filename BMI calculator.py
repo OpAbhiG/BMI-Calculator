@@ -9,11 +9,10 @@ def calculate_bmi(height, weight):
     Returns:
         float: Calculated BMI.
     """
-    try:
-        bmi = round(weight / (height**2), 2)
-        return bmi
-    except ZeroDivisionError:
-        return None
+    if height <= 0 or weight <= 0:
+        raise ValueError("Height and weight must be positive values.")
+    bmi = weight / (height ** 2)
+    return round(bmi, 2)
 
 
 def interpret_bmi(bmi):
@@ -26,21 +25,24 @@ def interpret_bmi(bmi):
     Returns:
         str: BMI interpretation.
     """
-    if bmi is None:
-        return "Invalid input. Height should be greater than 0."
-
-    if bmi < 18.5:
-        return f"Your BMI is {bmi}, you are underweight."
+    if bmi <= 0:
+        return "Invalid BMI. Height and weight must be positive values."
+    elif bmi < 16:
+        return "Very severely underweight"
+    elif bmi < 16.9:
+        return "Severely underweight"
+    elif bmi < 18.4:
+        return "Underweight"
     elif bmi < 24.9:
-        return f"Your BMI is {bmi}, you have a normal weight."
+        return "Normal weight"
     elif bmi < 29.9:
-        return f"Your BMI is {bmi}, you are overweight."
+        return "Overweight"
     elif bmi < 34.9:
-        return f"Your BMI is {bmi}, you are obese (Class I)."
+        return "Obese (Class I)"
     elif bmi < 39.9:
-        return f"Your BMI is {bmi}, you are obese (Class II)."
+        return "Obese (Class II)"
     else:
-        return f"Your BMI is {bmi}, you are obese (Class III)."
+        return "Obese (Class III)"
 
 
 def main():
@@ -49,11 +51,14 @@ def main():
         weight = float(input("Enter your weight in kilograms: "))
 
         bmi = calculate_bmi(height, weight)
-        result = interpret_bmi(bmi)
-        print(result)
+        print(f"Your BMI is {bmi}, indicating that you are {interpret_bmi(bmi)}.")
 
-    except ValueError:
-        print("Invalid input. Please enter numerical values for height and weight.")
+    except ValueError as ve:
+        print("Error:", ve)
+    except KeyboardInterrupt:
+        print("\nProgram terminated by user.")
+    except Exception as e:
+        print("An unexpected error occurred:", e)
 
 
 if __name__ == "__main__":
