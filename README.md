@@ -53,3 +53,8 @@ Main function to run BMI calculation and interpretation.
 ## Error Handling
 
 The script ensures only numerical values for height and weight are accepted, handling invalid input.
+
+
+![Uploading Screenshot 2024-03-08 225137.png…]()
+
+
