@@ -2,13 +2,7 @@ def calculate_bmi(height, weight):
     """
     Calculate BMI given height (in meters) and weight (in kilograms).
 
-    Args:
-        height (float): Height in meters.
-        weight (float): Weight in kilograms.
-
-    Returns:
-        float: Calculated BMI.
-    """
+   """
     if height <= 0 or weight <= 0:
         raise ValueError("Height and weight must be positive values.")
     bmi = weight / (height ** 2)
