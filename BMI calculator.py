@@ -10,15 +10,7 @@ def calculate_bmi(height, weight):
 
 
 def interpret_bmi(bmi):
-    """
-    Interpret the BMI and provide a classification.
-
-    Args:
-        bmi (float): Calculated BMI.
-
-    Returns:
-        str: BMI interpretation.
-    """
+   
     if bmi <= 0:
         return "Invalid BMI. Height and weight must be positive values."
     elif bmi < 16:
